@@ -47,12 +47,12 @@ export const createProductCtrl = asyncHandler(async (req, res) => {
     brand,
   });
   //push the product into category
-  categoryFound.producsts.push(product._id);
+  categoryFound.products.push(product._id);
   //resave
   await categoryFound.save();
 
   //push the product into brand
-  brandFoundFound.producsts.push(product._id);
+  brandFound.products.push(product._id);
   //resave
   await brandFound.save();
   //send respond
@@ -140,7 +140,7 @@ export const getProductsCrtl = asyncHandler(async(req, res) => {
         };
     }
     //await the query
-    const products = await productQuery;
+    const products = await productQuery.populate("reviews");
 
     res.json({
         status: "success",
@@ -157,7 +157,7 @@ export const getProductsCrtl = asyncHandler(async(req, res) => {
 //  @access Public
 
 export const getProductCrtl = asyncHandler(async(req, res) => {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(req.params.id).populate("reviews");
     if(!product){
         throw new Error("Product not found");
     }
