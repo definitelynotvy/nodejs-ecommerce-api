@@ -12,6 +12,7 @@ import colorRouter from "../routes/colorRouter.js";
 import reviewRouter from "../routes/reviewRoute.js";
 import orderRouter from "../routes/ordersRouter.js";
 import Order from "../model/Order.js";
+import couponRouter from "../routes/couponsRouter.js";
 //db connect
 dbConnect();
 const app = express();
@@ -87,6 +88,7 @@ app.use("/api/v1/brands/", brandsRouter);
 app.use("/api/v1/colors/", colorRouter);
 app.use("/api/v1/reviews/", reviewRouter);
 app.use("/api/v1/orders/", orderRouter);
+app.use("/api/v1/coupons/", couponRouter);
 //err middleware
 app.use(notFound);
 app.use(globalErrHandler);
