@@ -6,18 +6,18 @@ import {
   getSingleBrandCtrl,
   updateBrandCtrl,
 } from "../controllers/brandsCtrl.js";
-// import isAdmin from "../middlewares/isAdmin.js";
+
 
 import { isLoggedIn } from "../middlewares/isLoggedIn.js";
+import isAdmin from "../middlewares/isAdmin.js";
 
 const brandsRouter = exppress.Router();
 
-//brandsRouter.post("/", isLoggedIn, isAdmin, createBrandCtrl);
-brandsRouter.post("/", isLoggedIn, createBrandCtrl);
+
+brandsRouter.post("/", isLoggedIn, isAdmin, createBrandCtrl);
 brandsRouter.get("/", getAllBrandsCtrl);
 brandsRouter.get("/:id", getSingleBrandCtrl);
-// brandsRouter.delete("/:id", isLoggedIn, isAdmin, deleteBrandCtrl);
-// brandsRouter.put("/:id", isLoggedIn, isAdmin, updateBrandCtrl);
-brandsRouter.delete("/:id", deleteBrandCtrl);
-brandsRouter.put("/:id", updateBrandCtrl);
+
+brandsRouter.delete("/:id", isLoggedIn, isAdmin, deleteBrandCtrl);
+brandsRouter.put("/:id", isLoggedIn, isAdmin, updateBrandCtrl);
 export default brandsRouter;

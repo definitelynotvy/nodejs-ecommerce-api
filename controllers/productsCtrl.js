@@ -8,8 +8,12 @@ import Brand from "../model/Brand.js";
 //  @access Private/Admin
 
 export const createProductCtrl = asyncHandler(async (req, res) => {
+
+    //console.log(req.file);
+    const convertedImgs = req.files.map((file) => file.path);
   const {name,description,category,size,color,price,totalQty,brand,
   } = req.body;
+
   //Product exists
   const productExists = await Product.findOne({name});
   if(productExists){
@@ -45,6 +49,7 @@ export const createProductCtrl = asyncHandler(async (req, res) => {
     price,
     totalQty,
     brand,
+    images: convertedImgs,
   });
   //push the product into category
   categoryFound.products.push(product._id);
