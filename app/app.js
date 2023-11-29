@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import Stripe from "stripe";
+import cors from "cors";
 dotenv.config();
 import express from "express";
 import dbConnect from "../config/dbConnect.js";
@@ -16,6 +17,9 @@ import couponRouter from "../routes/couponsRouter.js";
 //db connect
 dbConnect();
 const app = express();
+
+//cors
+app.use(cors());
 
 //Stripe webhook
 
