@@ -11,7 +11,7 @@ export const createProductCtrl = asyncHandler(async (req, res) => {
 
     //console.log(req.file);
     const convertedImgs = req.files.map((file) => file.path);
-  const {name,description,category,size,color,price,totalQty,brand,
+  const {name,description,category,sizes,colors,price,totalQty,brand,
   } = req.body;
 
   //Product exists
@@ -43,8 +43,8 @@ export const createProductCtrl = asyncHandler(async (req, res) => {
     name,
     description,
     category,
-    size,
-    color,
+    sizes,
+    colors,
     user: req.userAuthId,
     price,
     totalQty,
@@ -178,10 +178,10 @@ export const getProductCrtl = asyncHandler(async(req, res) => {
 //  @access Private/Admin
 
 export const updateProductCrtl = asyncHandler(async(req, res) => {
-    const {name,description,category,size,color,user,price,totalQty,brand,
+    const {name,description,category,sizes,colors,user,price,totalQty,brand,
     } = req.body;
     //update
-    const product = await Product.findByIdAndUpdate(req.params.id, {name,description,category,size,color,user,price,totalQty,brand,
+    const product = await Product.findByIdAndUpdate(req.params.id, {name,description,category,sizes,colors,user,price,totalQty,brand,
     }, {
         new: true,
     });
