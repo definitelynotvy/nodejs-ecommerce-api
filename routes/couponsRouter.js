@@ -10,7 +10,7 @@ couponRouter.post("/",isLoggedIn, isAdmin, createCouponCtrl);
 
 couponRouter.get("/", getAllCouponsCtrl);
 
-couponRouter.get("/:id", getCouponCtrl);
+couponRouter.get("/single?", getCouponCtrl);
 
 couponRouter.put("/update/:id", isLoggedIn, isAdmin, updateCouponCtrl);
 
