@@ -76,7 +76,7 @@ res.json({
 // @route   PUT  /api/v1/users/update/shipping
 // @access  Private
 export const updateShippingAddressctrl = asyncHandler(async(req,res)=>{
-  const{firstName, lastName, address, city, postalCode,province,phone}=req.body;
+  const{firstName, lastName, address, city, postalCode,province,phone,country}=req.body;
   //console.log(req.userAuthID);
   const user = await User.findByIdAndUpdate(req.userAuthId, {
     shippingAddress:{
@@ -87,6 +87,7 @@ export const updateShippingAddressctrl = asyncHandler(async(req,res)=>{
       postalCode,
       province,
       phone,
+      country,
     },
     hasShippingAddress: true,
   },

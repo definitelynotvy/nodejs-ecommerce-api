@@ -16,7 +16,7 @@ import Coupon from "../model/Coupon.js";
 const stripe = new Stripe(process.env.STRIPE_KEY);
 
 export const createOderCtrl = asyncHandler(async (req, res)=>{
-   //get the coupon
+   {/*//get the coupon
    const {coupon} = req?.query;
    
    const couponFound = await Coupon.findOne({
@@ -27,7 +27,7 @@ export const createOderCtrl = asyncHandler(async (req, res)=>{
    }
    if(!couponFound){
       throw new Error("Coupon does not exists");
-   }
+   }*/}
 
    //get discount
   //  const discount = couponFound?.discount / 100;
