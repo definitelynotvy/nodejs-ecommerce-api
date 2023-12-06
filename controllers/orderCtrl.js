@@ -114,8 +114,8 @@ export const createOderCtrl = asyncHandler(async (req, res)=>{
 
 export const getAllordersCtrl = asyncHandler(async (req, res) => {
    //find all orders
-   // const orders = await Order.find().populate("user");
-   const orders = await Order.find();
+   const orders = await Order.find().populate("user");
+   //const orders = await Order.find();
    res.json({
      success: true,
      message: "All orders",

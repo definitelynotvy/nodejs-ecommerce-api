@@ -190,6 +190,7 @@ export const updateProductCrtl = asyncHandler(async(req, res) => {
     const product = await Product.findByIdAndUpdate(req.params.id, {name,description,category,sizes,colors,user,price,totalQty,brand,
     }, {
         new: true,
+        runValidators: true,
     });
     res.json({
         status: "success",
