@@ -92,7 +92,8 @@ export const getProductsCrtl = asyncHandler(async(req, res) => {
     //filter by category
     if (req.query.category) {
         productQuery = productQuery.find({
-            category: { $regex: req.query.category, $options: "i"},
+            // category: { $regex: req.query.category, $options: "i"},
+            category: { $regex: '\\b' + req.query.category + '\\b', $options: "i" },
         });
     }
     //filter by color
