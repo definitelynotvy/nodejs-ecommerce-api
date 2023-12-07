@@ -94,8 +94,10 @@ export const createOderCtrl = asyncHandler(async (req, res)=>{
          orderId: JSON.stringify(order?.id),
       },
       mode: "payment",
-      success_url: "http://localhost:3000/success",
-      cancel_url: "http://localhost:3000/cancel",
+      // success_url: "http://localhost:3000/success",
+      // cancel_url: "http://localhost:3000/cancel",
+      success_url: "https://ecommerce-frontend-uit.vercel.app/success",
+      cancel_url: "https://ecommerce-frontend-uit.vercel.app/cancel",
    });
    res.send({ url: session.url });
    //payment webhook
